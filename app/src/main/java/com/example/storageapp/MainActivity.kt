@@ -52,7 +52,7 @@ fun NotesScreen(vm: NotesViewModel = viewModel()) {
                     it,
                     Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                 )
-            } catch (e : Exception) {}
+            } catch (_ : Exception) {}
             vm.setExternalUri(it)
             vm.saveExternal(resolver)
             Toast.makeText(ctx, "Berkas dibuat & disimpan.", Toast.LENGTH_SHORT).show()
@@ -68,7 +68,7 @@ fun NotesScreen(vm: NotesViewModel = viewModel()) {
                     it,
                     Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                 )
-            } catch (e : Exception) {}
+            } catch (_ : Exception) {}
             vm.setExternalUri(it)
             vm.openExternal(resolver)
             Toast.makeText(ctx, "Berkas dibuka.", Toast.LENGTH_SHORT).show()
