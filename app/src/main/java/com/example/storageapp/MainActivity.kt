@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-                Surface(Modifier.fillMaxSize()) {
+                Surface(modifier = Modifier.fillMaxSize()) {
                     NotesScreen()
                 }
             }
@@ -68,7 +68,7 @@ fun NotesScreen(vm: NotesViewModel = viewModel()) {
                     it,
                     Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                 )
-            } catch (_: Exception) {}
+            } catch (e : Exception) {}
             vm.setExternalUri(it)
             vm.openExternal(resolver)
             Toast.makeText(ctx, "Berkas dibuka.", Toast.LENGTH_SHORT).show()
@@ -78,6 +78,7 @@ fun NotesScreen(vm: NotesViewModel = viewModel()) {
     Column(
         Modifier
             .padding(16.dp)
+            .padding(top = 50.dp)
             .fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
